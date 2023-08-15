@@ -1,50 +1,59 @@
-Project: Live Performance Tracking of Delivery Associates at Amazon.
+# Project: Live Performance Tracking of Delivery Associates at Amazon
 
-The team at Whizzard wanted visibility and accessibility of the performance data for all DAs across all Amazon Node (Distribution Unit), Merchant Fulfilled Network (MFN), and E-commerce (Delivery Unit) sites.
+## Introduction
 
-The objectives of this project are to get the following status of DAs on an hourly basis:
-➢	Constant monitoring of DAs performance.
-➢	Inactive DAs 
-➢	DAs who are behind with delivery.
-➢	DAs who are still in the hub and have not started yet.
-➢	Last three days' performance data.
+The team at **Whizzard** aimed to achieve visibility and accessibility of performance data for all Delivery Associates (DAs) across various Amazon units, including Node (Distribution Unit), Merchant Fulfilled Network (MFN), and E-commerce (Delivery Unit) sites.
 
-1.	Getting Performance Data from Corte Portal
+### Objectives
 
-The DAs performance data is extracted from the Cortex Portal - https://logistics.amazon.in/.
+This project's primary goal is to monitor the following DA statuses on an hourly basis:
+- Constant monitoring of DAs performance.
+- Identifying inactive DAs.
+- Tracking DAs lagging in delivery.
+- Monitoring DAs who haven't commenced their tasks and are still at the hub.
+- Reviewing the performance data from the past three days.
 
-We are keeping track of the performance of all DAs at all Amazon sites. 
+## Data Extraction: Cortex Portal
 
-After logging in go to Dashboard → Operations → Delivery → on the top left corner enter the site code. 
+Performance data for DAs is primarily extracted from the [Cortex Portal](https://logistics.amazon.in/). This portal helps in tracking the performance of all DAs across Amazon sites. 
 
-The same login credentials can be used to access DAs performance for all sites. At any given time, performance levels can be viewed for one site, to view data for a different site please select that site from the top left corner (as shown below).
- 
-We will get the performance matrix of DAs at a site level on this page. In order to get data for all sites we would have to enter each site one by one and then combine the data.
-
-Here on the left side list of DAs is given and below this is the unique ID Amazon has given a DA.
+### Navigation
+After logging in:
+- Navigate to `Dashboard → Operations → Delivery`.
+- Enter the desired site code in the top left corner.
   
-The status of each DA is given in the list along with DAs information and if you click on each DA for getting their performance. 
+The same login credentials grant access to DA performance metrics across all sites. For viewing a different site's data, choose that site from the top-left corner.
 
+### Data Compilation
+The portal provides DA performance matrices at an individual site level. To consolidate data across all sites, one must access each site separately and then aggregate the data.
 
-What is the information extracted from the Cortex portal?
-We are extracting orders delivered, orders assigned, stops assigned, stops completed, and other details indicating the performance of all DAs.
+### Data Details
+On the portal:
+- The left panel lists DAs.
+- Each DA has a unique ID assigned by Amazon.
+- Clicking on a specific DA reveals their performance metrics.
 
-How is Information/ data shared?
-The data is shared with the stakeholders through a Google sheet “amazon-live-cotex-data”. The data in this file is updated on an hourly basis.
+**Information Extracted:** 
+The data extracted from the Cortex portal includes orders delivered, orders assigned, stops assigned, stops completed, and other metrics indicating the performance of all DAs.
 
-When is the information shared?
-The data is shared through a Google sheet daily and the sheet is updated after every hour from 8 AM to 10 PM and then at the end of the day around 11:50 PM.
+## Data Sharing and Storage
 
-How is data saved? 
-Data after extraction is saved in the S3 bucket 
+### How is data shared?
+Performance data is disseminated to stakeholders through a Google sheet named **amazon-live-cotex-data**. This sheet undergoes hourly updates.
 
-2.	Important Links
+### Update Schedule
+The Google sheet receives updates every hour from 8 AM to 10 PM. A final update is made around 11:50 PM to wrap up the day.
 
-File Name	Description
-script.py
-Script for Scraping DAs Performance at Amazon MFN, Node, and E-commerce Stations.
-amazon-live-cotex-data
-Performance data is shared through this Google Sheet with the stakeholders.
- 
-By undertaking this project many man-hours have been saved by automating the reporting task and monitoring all DAs on an hourly basis. 
-All the information is now being gathered and communicated automatically.
+### Data Storage
+Post-extraction, the data is securely stored in an Amazon S3 bucket.
+
+## Important Links and Files
+
+| File Name | Description |
+|-----------|-------------|
+| `script.py` | Script for scraping DA performance at Amazon MFN, Node, and E-commerce stations. |
+| `amazon-live-cotex-data` | Google Sheet through which performance data is shared with stakeholders. |
+
+## Impact
+
+This project significantly reduced manual efforts by automating reporting tasks and facilitating hourly DA monitoring. All vital information is now automatically compiled and disseminated.
